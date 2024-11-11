@@ -37,10 +37,10 @@ su -p $usr -c "chmod -R a+rwx,g+s $HOME" || true
 
 # Loop while an internet connection is not available
 echo "`date '+%T.%3N'` [Internet]"
-while ! ping -qc1 -W5 dns.google >/dev/null 2>&1
+while ! ping -qc1 -W5 $INET_CHECK_HOST >/dev/null 2>&1
 do
-  echo "`date '+%T.%3N'` [Internet failed]: Waiting 30 seconds ..."
-  sleep 30
+  echo "`date '+%T.%3N'` [Internet failed]: Waiting $INET_CHECK_DELAY seconds ..."
+  sleep $INET_CHECK_DELAY
 done
 
 echo "`date '+%T.%3N'` [CTBRec]"

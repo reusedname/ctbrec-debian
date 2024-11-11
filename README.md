@@ -10,26 +10,30 @@ CTBRec is a streaming media recorder.
 
 ## Table of Content
 
-* [Docker container for CTBRec server](#docker-container-for-ctbrec-server)
-  * [Table of Content](#table-of-content)
-  * [Quick Start](#quick-start)
-  * [Usage](#usage)
-    * [Environment Variables](#environment-variables)
-    * [Data Volumes](#data-volumes)
-    * [Ports](#ports)
-    * [Changing Parameters of a Running Container](#changing-parameters-of-a-running-container)
-  * [Docker Compose File](#docker-compose-file)
-  * [QNap Installs](#qnap-installs)
-  * [Docker Image Update](#docker-image-update)
-    * [Synology](#synology)
-    * [unRAID](#unraid)
-  * [Accessing the GUI](#accessing-the-gui)
-  * [Shell Access](#shell-access)
-  * [Default Web Interface Access](#default-web-interface-access)
-  * [Logging](#logging)
-  * [Extras](#extras)
-    * [Ancillary Scripts](#ancillary-scripts)
-    * [Send2 Scripts](#send2-scripts)
+- [Docker container for CTBRec server](#docker-container-for-ctbrec-server)
+  - [Table of Content](#table-of-content)
+  - [Quick Start](#quick-start)
+  - [Usage](#usage)
+    - [Environment Variables](#environment-variables)
+    - [Data Volumes](#data-volumes)
+    - [Ports](#ports)
+    - [Changing Parameters of a Running Container](#changing-parameters-of-a-running-container)
+  - [Docker Compose File](#docker-compose-file)
+  - [QNap Installs](#qnap-installs)
+  - [Docker Image Update](#docker-image-update)
+    - [Synology](#synology)
+    - [unRAID](#unraid)
+  - [Accessing the GUI](#accessing-the-gui)
+  - [Shell Access](#shell-access)
+  - [Default Web Interface Access](#default-web-interface-access)
+  - [Logging](#logging)
+  - [Extras](#extras)
+    - [Ancillary Scripts](#ancillary-scripts)
+      - [dopp.sh](#doppsh)
+      - [plcheck.sh](#plchecksh)
+      - [reclean.py](#recleanpy)
+      - [reclaim.py](#reclaimpy)
+    - [Send2 Scripts](#send2-scripts)
 
 ## Quick Start
 
@@ -92,6 +96,8 @@ of this parameter has the format `<VARIABLE_NAME>=<VALUE>`.
 |`TZ`| [TimeZone] of the container.  Timezone can also be set by mapping `/etc/localtime` between the host and the container. | `UTC` |
 |`PGID`| Group ID that will be used to run CTBRec within the container. | `1000` |
 |`PUID`| User ID that will be used to run CTBRec within the container. | `1000` |
+|`INET_CHECK_HOST`| Host address for `ping` command to test internet availability | `dns.google` |
+|`INET_CHECK_DELAY`| Delay between internet check retries | `30` |
 
 ### Data Volumes
 
