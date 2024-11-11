@@ -13,4 +13,4 @@ chmod 666 /app/config/server.json
 # Enable post-processing by default
 [ ! -f "/app/config/dopp" ] && touch "/app/config/dopp"
 
-$JAVA -Xms256m -Xmx768m -cp ctbrec-server-$CTBVER-final.jar -Dfile.encoding=utf-8 -Dctbrec.config.dir=/app/config -Dctbrec.config=server.json ctbrec.recorder.server.HttpServer
+$JAVA -Xms256m -Xmx4G -cp ctbrec-server-$CTBVER-final.jar -Dfile.encoding=utf-8 -Dctbrec.config.dir=/app/config -Dctbrec.config=server.json ctbrec.recorder.server.HttpServer
